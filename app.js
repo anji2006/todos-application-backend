@@ -2,6 +2,8 @@ const express = require("express");
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
 const path = require("path");
+const cors = require("cors");
+
 const format = require("date-fns/format/");
 const isValid = require("date-fns/isValid");
 
@@ -9,6 +11,7 @@ const dbPath = path.join(__dirname, "todoApplication.db");
 const app = express();
 let db = null;
 
+app.use(cors());
 app.use(express.json());
 
 const InstilizationDbAndServer = async () => {
